@@ -10,7 +10,7 @@ from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 import asyncpg
 from dotenv import load_dotenv
-from fastapi import FastAPI, HTTPException, Request, status
+from fastapi import BackgroundTasks, FastAPI, HTTPException, Request, status
 from fastapi.responses import StreamingResponse
 from ollama import AsyncClient
 
@@ -39,6 +39,7 @@ load_dotenv(Path(__file__).with_name(".env"))
 DATABASE_URL = os.getenv("DATABASE_URL")
 CHAT_MAX_OUTPUT_TOKENS = int(os.getenv("CHAT_MAX_OUTPUT_TOKENS", "300"))
 CHAT_MAX_THINKING_TOKENS = int(os.getenv("CHAT_MAX_THINKING_TOKENS", "512"))
+DATASET_DIR = Path(__file__).with_name("models")
 
 ANALYTICS_SYSTEM_MESSAGE = """
 You are the RhythmX Wellness & Readiness Assistant.
@@ -86,9 +87,33 @@ async def database_health():
     return {"status": "ok", "database": "connected"}
 
 
-async def stream_content(messages: list[dict], model_name: str, engine_type: str = ""):
-    """Stream an Ollama answer after all trusted retrieval has completed."""
+def append_to_runtime_dataset(engine_type: str, user_input: str, full_response: str) -> None:
+    """Append a completed model interaction to the daily JSONL retraining dataset."""
+    try:
+        DATASET_DIR.mkdir(parents=True, exist_ok=True)
+        dataset_file = DATASET_DIR / f"runtime_dataset_{datetime.utcnow():%Y-%m-%d}.jsonl"
+        record = {
+            "timestamp": datetime.utcnow().isoformat(),
+            "engine": engine_type,
+            "instruction": user_input,
+            "output": full_response,
+        }
+        with dataset_file.open("a", encoding="utf-8") as stream:
+            stream.write(json.dumps(record, ensure_ascii=False) + "\n")
+        logger.info("Logged completed %s interaction to runtime dataset", engine_type)
+    except OSError as exc:
+        logger.error("Failed to record runtime dataset: %s", type(exc).__name__)
+
+
+async def stream_content(
+    messages: list[dict], model_name: str, engine_type: str = "", background_tasks: BackgroundTasks | None = None
+):
+    """Stream an Ollama answer and persist the completed request/response asynchronously."""
     client = AsyncClient()
+    accumulated_response: list[str] = []
+    user_input = "\n\n".join(
+        str(message.get("content", "")) for message in messages if message.get("role") == "user"
+    )
     options = {
         "num_predict": CHAT_MAX_OUTPUT_TOKENS if engine_type == "chat" else 1024,
         "top_k": 1,
@@ -102,7 +127,11 @@ async def stream_content(messages: list[dict], model_name: str, engine_type: str
     ):
         content = chunk.get("message", {}).get("content", "")
         if content:
+            accumulated_response.append(content)
             yield content
+    full_response = "".join(accumulated_response).strip()
+    if background_tasks and full_response:
+        background_tasks.add_task(append_to_runtime_dataset, engine_type, user_input, full_response)
 
 
 def _athlete_id_from_body(value: object) -> int:
@@ -151,7 +180,7 @@ async def _chat_payload(request: Request) -> tuple[str, str]:
 
 
 @app.post("/chat/")
-async def get_chat_stream(request: Request):
+async def get_chat_stream(request: Request, background_tasks: BackgroundTasks):
     """
     Chat endpoint using the body-provided athlete_id. Retrieval completes before streaming.
     """
@@ -164,13 +193,16 @@ async def get_chat_stream(request: Request):
         messages.append({"role": "user", "content": f"ATHLETE_ANALYTICS_RESULT:\n{analytics_context}"})
     logger.info("Chat request accepted; analytics=%s", bool(analytics_context))
     return StreamingResponse(
-        stream_content(messages, model_name=MODEL_MAPPING["chat"], engine_type="chat"),
+        stream_content(
+            messages, model_name=MODEL_MAPPING["chat"], engine_type="chat", background_tasks=background_tasks
+        ),
         media_type="text/plain",
+        background=background_tasks,
     )
 
 
 @app.post("/intelligence/{engine_type}")
-async def get_intelligence_stream(request: Request, engine_type: str):
+async def get_intelligence_stream(request: Request, engine_type: str, background_tasks: BackgroundTasks):
     """Existing current-day intelligence endpoint retained for engine callers."""
     body = await request.json()
     clean_engine_key = engine_type.strip().lower()
@@ -178,6 +210,12 @@ async def get_intelligence_stream(request: Request, engine_type: str):
     if model_name is None or clean_engine_key == "chat":
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Unknown intelligence engine")
     return StreamingResponse(
-        stream_content([{"role": "user", "content": body.get("content", "")}], model_name, clean_engine_key),
+        stream_content(
+            [{"role": "user", "content": body.get("content", "")}],
+            model_name,
+            clean_engine_key,
+            background_tasks,
+        ),
         media_type="text/plain",
+        background=background_tasks,
     )
