@@ -37,10 +37,8 @@ MODEL_MAPPING = {
 # Load the deployment-local .env file without overriding systemd environment variables.
 load_dotenv(Path(__file__).with_name(".env"))
 DATABASE_URL = os.getenv("DATABASE_URL")
-# Output limits live in each Modelfile. Thinking remains an API option because
-# Ollama does not support max_thinking_tokens as a Modelfile parameter.
-CHAT_MAX_THINKING_TOKENS = 384
-ENGINE_MAX_THINKING_TOKENS = 256
+CHAT_MAX_OUTPUT_TOKENS = int(os.getenv("CHAT_MAX_OUTPUT_TOKENS", "300"))
+CHAT_MAX_THINKING_TOKENS = int(os.getenv("CHAT_MAX_THINKING_TOKENS", "512"))
 DATASET_DIR = Path(__file__).with_name("models")
 
 ANALYTICS_SYSTEM_MESSAGE = """
@@ -117,11 +115,12 @@ async def stream_content(
         str(message.get("content", "")) for message in messages if message.get("role") == "user"
     )
     options = {
+        "num_predict": CHAT_MAX_OUTPUT_TOKENS if engine_type == "chat" else 1024,
         "top_k": 1,
         "repeat_penalty": 1.0,
         "keep_alive": "5m",
         "reasoning_effort": "low",
-        "max_thinking_tokens": CHAT_MAX_THINKING_TOKENS if engine_type == "chat" else ENGINE_MAX_THINKING_TOKENS,
+        "max_thinking_tokens": CHAT_MAX_THINKING_TOKENS if engine_type == "chat" else 1024,
     }
     async for chunk in await client.chat(
         model=model_name, messages=messages, think=True, stream=True, options=options
