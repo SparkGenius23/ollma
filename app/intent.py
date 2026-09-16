@@ -3,10 +3,10 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass
 from datetime import date, timedelta
-from enum import StrEnum
+from enum import Enum
 
 
-class IntentType(StrEnum):
+class IntentType(str, Enum):
     CURRENT = "current"
     TREND = "trend"
     PERIOD_COMPARISON = "period_comparison"
