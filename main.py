@@ -176,6 +176,8 @@ async def _chat_payload(request: Request) -> tuple[str, str]:
             athlete_id, intent, *date_range
         )
         return message, json.dumps(analytics, separators=(",", ":"))
+
+    logger.info("Chat payload: ", message)
     return message, ""
 
 
