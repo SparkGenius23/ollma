@@ -1,0 +1,363 @@
+2026-04-14 21:08:04,095 - main - INFO - Chat Stream log initiated
+2026-04-14 21:08:12,645 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-14 21:09:01,015 - main - INFO - Chat Stream log initiated
+2026-04-14 21:09:09,234 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-17 15:28:08,750 - main - INFO - Chat Stream log initiated
+2026-04-17 15:28:17,115 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-25 12:09:14,998 - main - INFO - Chat Stream log initiated
+2026-04-25 12:09:23,512 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-25 12:09:30,978 - main - INFO - Chat Stream log initiated
+2026-04-25 12:09:31,501 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-26 15:52:46,449 - main - INFO - Chat Stream log initiated
+2026-04-26 15:52:55,642 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-04-28 05:26:23,398 - main - INFO - Chat Stream log initiated
+2026-04-28 05:26:32,096 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-03 18:32:50,720 - main - INFO - Chat Stream log initiated
+2026-05-03 18:32:59,438 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-03 18:34:08,462 - main - INFO - Chat Stream log initiated
+2026-05-03 18:34:08,991 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-05 17:13:53,794 - main - INFO - Chat Stream log initiated
+2026-05-05 17:14:03,041 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-05 17:14:10,236 - main - INFO - Chat Stream log initiated
+2026-05-05 17:14:15,910 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-16 14:38:12,992 - main - INFO - Chat Stream log initiated
+2026-05-16 14:38:21,872 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-16 17:45:28,979 - main - INFO - Chat Stream log initiated
+2026-05-16 17:45:37,284 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-17 03:29:50,577 - main - INFO - Chat Stream log initiated
+2026-05-17 03:29:58,959 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-17 03:30:25,783 - main - INFO - Chat Stream log initiated
+2026-05-17 03:30:26,302 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-17 03:31:12,445 - main - INFO - Chat Stream log initiated
+2026-05-17 03:31:12,904 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-17 03:32:22,512 - main - INFO - Chat Stream log initiated
+2026-05-17 03:32:22,962 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:32:32,921 - main - INFO - Chat Stream log initiated
+2026-05-18 04:32:41,873 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 04:32:57,964 - main - INFO - Chat Stream log initiated
+2026-05-18 04:32:58,467 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-18 15:24:39,172 - main - INFO - Chat Stream log initiated
+2026-05-18 15:24:47,776 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-05-19 03:11:11,899 - main - INFO - Chat Stream log initiated
+2026-05-19 03:11:19,704 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-05 16:14:59,168 - main - INFO - Chat Stream log initiated
+2026-06-05 16:15:07,793 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-10 21:41:30,463 - main - INFO - Chat Stream log initiated
+2026-06-10 21:41:40,147 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-10 21:42:06,193 - main - INFO - Chat Stream log initiated
+2026-06-10 21:42:06,710 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-10 21:42:19,836 - main - INFO - Chat Stream log initiated
+2026-06-10 21:42:20,270 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-11 18:18:56,164 - main - INFO - Chat Stream log initiated
+2026-06-11 18:19:05,815 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-11 22:16:29,078 - main - INFO - Chat Stream log initiated
+2026-06-11 22:16:38,952 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-11 22:39:51,899 - main - INFO - LLM Stream log initiated recovery
+2026-06-11 22:39:59,820 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-11 22:40:46,629 - main - INFO - LLM Stream log initiated readiness
+2026-06-11 22:40:47,810 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-11 22:41:46,762 - main - INFO - LLM Stream log initiated readiness
+2026-06-11 22:41:47,527 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-11 22:44:53,610 - main - INFO - LLM Stream log initiated readiness
+2026-06-11 22:44:54,399 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-12 00:04:44,250 - main - INFO - LLM Stream log initiated recovery
+2026-06-12 00:04:51,876 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-12 00:07:08,656 - main - INFO - LLM Stream log initiated recovery
+2026-06-12 00:07:09,069 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-12 00:08:05,262 - main - INFO - LLM Stream log initiated recovery
+2026-06-12 00:08:05,658 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-12 00:09:00,620 - main - INFO - LLM Stream log initiated readiness
+2026-06-12 00:09:01,816 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-12 00:10:00,812 - main - INFO - LLM Stream log initiated readiness
+2026-06-12 00:10:01,541 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-12 00:12:30,534 - main - INFO - LLM Stream log initiated recovery
+2026-06-12 00:12:31,782 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-12 00:13:25,573 - main - INFO - LLM Stream log initiated readiness
+2026-06-12 00:13:26,734 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-12 00:14:25,662 - main - INFO - LLM Stream log initiated readiness
+2026-06-12 00:14:26,415 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-12 00:15:13,191 - main - INFO - LLM Stream log initiated recovery
+2026-06-12 00:15:14,443 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-12 00:16:08,325 - main - INFO - LLM Stream log initiated readiness
+2026-06-12 00:16:09,474 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-12 00:17:08,420 - main - INFO - LLM Stream log initiated readiness
+2026-06-12 00:17:09,171 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-12 00:18:05,544 - main - INFO - LLM Stream log initiated recovery
+2026-06-12 00:18:06,757 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-12 00:19:00,702 - main - INFO - LLM Stream log initiated readiness
+2026-06-12 00:19:01,894 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-12 00:20:00,805 - main - INFO - LLM Stream log initiated readiness
+2026-06-12 00:20:01,534 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-12 00:20:06,379 - main - INFO - LLM Stream log initiated recovery
+2026-06-12 00:20:19,654 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-12 00:21:18,325 - main - INFO - LLM Stream log initiated recovery
+2026-06-12 00:21:18,688 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-12 00:23:08,304 - main - INFO - LLM Stream log initiated readiness
+2026-06-12 00:23:37,100 - main - INFO - LLM Stream log initiated recovery
+2026-06-12 00:23:45,055 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-12 00:34:36,527 - main - INFO - LLM Stream log initiated recovery
+2026-06-12 00:34:44,949 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-12 00:35:18,613 - main - INFO - LLM Stream log initiated recovery
+2026-06-12 00:35:19,024 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-12 02:18:40,442 - main - INFO - LLM Stream log initiated recovery
+2026-06-12 02:18:48,892 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-12 02:19:48,578 - main - INFO - LLM Stream log initiated recovery
+2026-06-12 02:19:48,993 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-12 02:20:43,713 - main - INFO - LLM Stream log initiated readiness
+2026-06-12 02:20:44,890 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-12 02:21:43,905 - main - INFO - LLM Stream log initiated readiness
+2026-06-12 02:21:44,659 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-12 02:24:50,968 - main - INFO - LLM Stream log initiated readiness
+2026-06-12 02:24:51,760 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-13 23:44:28,597 - main - INFO - Chat Stream log initiated
+2026-06-13 23:44:37,510 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-24 18:12:45,051 - main - INFO - LLM Stream log initiated recovery
+2026-06-24 18:12:53,561 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-24 18:19:45,368 - main - INFO - LLM Stream log initiated readiness
+2026-06-24 18:19:45,427 - main - INFO - LLM Stream log initiated readiness
+2026-06-24 18:19:47,186 - main - INFO - Chat Stream log initiated
+2026-06-24 18:19:54,143 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-24 18:20:18,430 - main - INFO - LLM Stream log initiated readiness
+2026-06-24 18:20:20,109 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-24 18:20:38,761 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-24 18:20:58,359 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-06-30 15:28:23,273 - main - INFO - Chat Stream log initiated
+2026-06-30 15:28:32,401 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-20 19:53:04,471 - main - INFO - Chat Stream log initiated
+2026-07-20 19:53:12,788 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-24 13:26:50,229 - main - INFO - LLM Stream log initiated recovery
+2026-07-24 13:26:59,638 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-24 13:28:25,288 - main - INFO - LLM Stream log initiated recovery
+2026-07-24 13:28:25,695 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 01:18:00,677 - main - INFO - Chat Stream log initiated
+2026-07-27 01:18:11,309 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 01:22:49,990 - main - INFO - Chat Stream log initiated
+2026-07-27 01:22:59,354 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 01:26:25,566 - main - INFO - Chat Stream log initiated
+2026-07-27 01:26:25,976 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 01:27:09,971 - main - INFO - Chat Stream log initiated
+2026-07-27 01:27:10,363 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 01:34:25,399 - main - INFO - Chat Stream log initiated
+2026-07-27 01:34:34,707 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 01:34:45,846 - main - INFO - Logged query/response pair to runtime dataset for chat
+2026-07-27 01:35:07,672 - main - INFO - Chat Stream log initiated
+2026-07-27 01:35:08,164 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 01:35:19,369 - main - INFO - Logged query/response pair to runtime dataset for chat
+2026-07-27 01:35:38,265 - main - INFO - Chat Stream log initiated
+2026-07-27 01:35:38,735 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 01:35:50,032 - main - INFO - Logged query/response pair to runtime dataset for chat
+2026-07-27 01:48:45,006 - main - INFO - LLM Stream log initiated: recovery using model: rhythmx-recovery:latest
+2026-07-27 01:49:25,397 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 01:49:37,068 - main - INFO - Logged query/response pair to runtime dataset for recovery
+2026-07-27 01:49:48,111 - main - INFO - LLM Stream log initiated: recovery using model: rhythmx-recovery:latest
+2026-07-27 01:49:48,526 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 01:49:56,231 - main - INFO - Logged query/response pair to runtime dataset for recovery
+2026-07-27 01:50:09,773 - main - INFO - LLM Stream log initiated: recovery using model: rhythmx-recovery:latest
+2026-07-27 01:50:10,156 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 01:50:17,874 - main - INFO - Logged query/response pair to runtime dataset for recovery
+2026-07-27 01:51:22,042 - main - INFO - LLM Stream log initiated: recovery using model: rhythmx-recovery:latest
+2026-07-27 01:51:22,635 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 01:51:29,346 - main - INFO - Logged query/response pair to runtime dataset for recovery
+2026-07-27 01:51:46,890 - main - INFO - LLM Stream log initiated: recovery using model: rhythmx-recovery:latest
+2026-07-27 01:51:47,293 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 01:51:54,322 - main - INFO - Logged query/response pair to runtime dataset for recovery
+2026-07-27 01:52:02,094 - main - INFO - LLM Stream log initiated: recovery using model: rhythmx-recovery:latest
+2026-07-27 01:52:02,767 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 01:52:08,255 - main - INFO - Logged query/response pair to runtime dataset for recovery
+2026-07-27 01:52:27,581 - main - INFO - LLM Stream log initiated: recovery using model: rhythmx-recovery:latest
+2026-07-27 01:52:27,970 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 01:52:36,047 - main - INFO - Logged query/response pair to runtime dataset for recovery
+2026-07-27 01:59:16,517 - main - INFO - Chat Stream log initiated
+2026-07-27 01:59:27,421 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 01:59:38,617 - main - INFO - Logged query/response pair to runtime dataset for chat
+2026-07-27 01:59:51,650 - main - INFO - Chat Stream log initiated
+2026-07-27 01:59:52,139 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 02:00:03,455 - main - INFO - Logged query/response pair to runtime dataset for chat
+2026-07-27 02:00:27,014 - main - INFO - Chat Stream log initiated
+2026-07-27 02:00:27,453 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 02:00:38,833 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-07-27.jsonl for chat
+2026-07-27 02:00:42,400 - main - INFO - Chat Stream log initiated
+2026-07-27 02:00:42,823 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 02:00:54,248 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-07-27.jsonl for chat
+2026-07-27 02:00:56,731 - main - INFO - Chat Stream log initiated
+2026-07-27 02:00:57,218 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 02:01:08,725 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-07-27.jsonl for chat
+2026-07-27 02:01:45,619 - main - INFO - LLM Stream log initiated: recovery using model: rhythmx-recovery:latest
+2026-07-27 02:01:46,616 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 02:01:56,446 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-07-27.jsonl for recovery
+2026-07-27 02:02:59,318 - main - INFO - LLM Stream log initiated: readiness using model: rhythmx-readiness:latest
+2026-07-27 02:03:00,221 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 02:03:15,085 - main - INFO - Chat Stream log initiated
+2026-07-27 02:03:22,844 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-07-27.jsonl for readiness
+2026-07-27 02:03:23,993 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 02:03:35,509 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-07-27.jsonl for chat
+2026-07-27 02:05:36,142 - main - INFO - LLM Stream log initiated: readiness using model: rhythmx-readiness:latest
+2026-07-27 02:05:37,067 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 02:05:59,663 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-07-27.jsonl for readiness
+2026-07-27 02:10:14,525 - main - INFO - LLM Stream log initiated: readiness using model: rhythmx-readiness:latest
+2026-07-27 02:10:14,912 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 02:10:30,104 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-07-27.jsonl for readiness
+2026-07-27 02:12:59,946 - main - INFO - LLM Stream log initiated: readiness using model: rhythmx-readiness:latest
+2026-07-27 02:13:02,669 - main - INFO - Chat Stream log initiated
+2026-07-27 02:13:11,342 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 02:13:11,421 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 02:13:31,701 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-07-27.jsonl for chat
+2026-07-27 02:13:33,270 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-07-27.jsonl for readiness
+2026-07-27 02:13:41,626 - main - INFO - Chat Stream log initiated
+2026-07-27 02:13:42,047 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 02:13:53,461 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-07-27.jsonl for chat
+2026-07-27 02:14:52,862 - main - INFO - Chat Stream log initiated
+2026-07-27 02:14:53,327 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 02:15:03,169 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-07-27.jsonl for chat
+2026-07-27 02:32:32,319 - main - INFO - Chat Stream log initiated
+2026-07-27 02:32:32,722 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 02:32:43,140 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-07-27.jsonl for chat
+2026-07-27 02:33:05,544 - main - INFO - Chat Stream log initiated
+2026-07-27 02:33:16,358 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 02:33:27,477 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-07-27.jsonl for chat
+2026-07-27 02:33:38,797 - main - INFO - LLM Stream log initiated: readiness using model: rhythmx-readiness:latest
+2026-07-27 02:33:39,750 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 02:34:02,309 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-07-27.jsonl for readiness
+2026-07-27 02:41:11,341 - main - INFO - LLM Stream log initiated: readiness using model: rhythmx-readiness:latest
+2026-07-27 02:41:11,733 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-07-27 02:41:26,889 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-07-27.jsonl for readiness
+2026-08-05 11:11:05,168 - main - INFO - Chat Stream log initiated
+2026-08-05 11:11:06,590 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-05 11:11:17,699 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-05.jsonl for chat
+2026-08-11 20:19:48,264 - main - INFO - Chat Stream log initiated
+2026-08-11 20:19:49,716 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-11 20:20:01,040 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-11.jsonl for chat
+2026-08-11 23:36:26,139 - main - INFO - Chat Stream log initiated
+2026-08-11 23:38:13,646 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-11 23:38:25,097 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-11.jsonl for chat
+2026-08-12 00:27:13,832 - main - INFO - Chat Stream log initiated
+2026-08-12 00:27:15,314 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-12 00:27:25,319 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-12.jsonl for chat
+2026-08-12 00:38:01,018 - main - INFO - Chat Stream log initiated
+2026-08-12 00:38:01,437 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-12 00:38:12,425 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-12.jsonl for chat
+2026-08-12 00:40:32,159 - main - INFO - Chat Stream log initiated
+2026-08-12 00:40:32,559 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-12 00:40:43,558 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-12.jsonl for chat
+2026-08-12 00:41:32,065 - main - INFO - Chat Stream log initiated
+2026-08-12 00:41:32,453 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-12 00:41:43,466 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-12.jsonl for chat
+2026-08-12 00:42:35,949 - main - INFO - LLM Stream log initiated: readiness using model: rhythmx-readiness:latest
+2026-08-12 00:42:36,878 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-12 00:43:29,542 - main - INFO - LLM Stream log initiated: readiness using model: rhythmx-readiness:latest
+2026-08-12 00:43:29,937 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-12 00:43:50,373 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-12.jsonl for readiness
+2026-08-12 00:46:06,936 - main - INFO - LLM Stream log initiated: risk using model: rhythmx-risk:latest
+2026-08-12 00:46:07,892 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-12 00:46:19,259 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-12.jsonl for risk
+2026-08-12 00:47:29,744 - main - INFO - Chat Stream log initiated
+2026-08-12 00:47:31,174 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-12 00:47:42,625 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-12.jsonl for chat
+2026-08-12 00:53:45,863 - main - INFO - Chat Stream log initiated
+2026-08-12 00:53:46,301 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-12 00:53:57,739 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-12.jsonl for chat
+2026-08-12 00:54:00,416 - main - INFO - LLM Stream log initiated: readiness using model: rhythmx-readiness:latest
+2026-08-12 00:54:01,354 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-12 00:54:28,648 - main - INFO - LLM Stream log initiated: readiness using model: rhythmx-readiness:latest
+2026-08-12 00:54:29,022 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-12 00:54:49,595 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-12.jsonl for readiness
+2026-08-12 00:56:03,533 - main - INFO - LLM Stream log initiated: readiness using model: rhythmx-readiness:latest
+2026-08-12 00:56:03,918 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-12 00:56:24,274 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-12.jsonl for readiness
+2026-08-12 01:15:52,384 - main - INFO - LLM Stream log initiated: readiness using model: rhythmx-readiness:latest
+2026-08-12 01:15:52,779 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-12 01:16:09,021 - main - INFO - Chat Stream log initiated
+2026-08-12 01:16:10,743 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-12 01:16:17,351 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-12.jsonl for readiness
+2026-08-12 01:16:24,365 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-12.jsonl for chat
+2026-08-12 01:16:48,522 - main - INFO - Chat Stream log initiated
+2026-08-12 01:16:48,903 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-12 01:16:59,835 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-12.jsonl for chat
+2026-08-12 01:18:02,007 - main - INFO - LLM Stream log initiated: readiness using model: rhythmx-readiness:latest
+2026-08-12 01:18:02,389 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-12 01:18:22,781 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-12.jsonl for readiness
+2026-08-12 01:19:03,922 - main - INFO - LLM Stream log initiated: readiness using model: rhythmx-readiness:latest
+2026-08-12 01:19:04,299 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-12 01:19:24,740 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-12.jsonl for readiness
+2026-08-12 01:19:27,346 - main - INFO - LLM Stream log initiated: readiness using model: rhythmx-readiness:latest
+2026-08-12 01:19:27,715 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-12 01:19:48,298 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-12.jsonl for readiness
+2026-08-13 23:56:13,390 - main - INFO - Chat Stream log initiated
+2026-08-13 23:56:14,866 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-13 23:56:26,322 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-13.jsonl for chat
+2026-08-14 00:36:52,012 - main - INFO - Chat Stream log initiated
+2026-08-14 00:36:53,484 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-14 00:37:02,030 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-14.jsonl for chat
+2026-08-14 00:40:25,781 - main - INFO - LLM Stream log initiated: risk using model: rhythmx-risk:latest
+2026-08-14 00:40:26,699 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-14 00:40:42,384 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-14.jsonl for risk
+2026-08-14 10:19:28,965 - main - INFO - LLM Stream log initiated: readiness using model: rhythmx-readiness:latest
+2026-08-14 10:19:29,876 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-14 10:19:44,089 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-14.jsonl for readiness
+2026-08-14 10:20:19,382 - main - INFO - LLM Stream log initiated: readiness using model: rhythmx-readiness:latest
+2026-08-14 10:20:19,978 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-14 10:20:43,229 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-14.jsonl for readiness
+2026-08-14 10:20:49,353 - main - INFO - LLM Stream log initiated: readiness using model: rhythmx-readiness:latest
+2026-08-14 10:20:49,764 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-14 10:21:12,355 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-14.jsonl for readiness
+2026-08-14 13:28:38,855 - main - INFO - LLM Stream log initiated: readiness using model: rhythmx-readiness:latest
+2026-08-14 13:28:39,246 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-14 13:29:01,692 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-14.jsonl for readiness
+2026-08-14 13:29:04,810 - main - INFO - LLM Stream log initiated: risk using model: rhythmx-risk:latest
+2026-08-14 13:29:05,747 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-14 13:29:20,483 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-14.jsonl for risk
+2026-08-14 13:35:00,151 - main - INFO - Chat Stream log initiated
+2026-08-14 13:35:01,555 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-14 13:35:08,333 - main - INFO - LLM Stream log initiated: readiness using model: rhythmx-readiness:latest
+2026-08-14 13:35:09,501 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-14 13:35:11,574 - main - INFO - LLM Stream log initiated: risk using model: rhythmx-risk:latest
+2026-08-14 13:35:12,872 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-14 13:35:18,788 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-14.jsonl for chat
+2026-08-14 13:35:34,462 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-14.jsonl for risk
+2026-08-14 13:35:41,774 - main - INFO - LLM Stream log initiated: readiness using model: rhythmx-readiness:latest
+2026-08-14 13:35:42,887 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-14 13:35:43,880 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-14.jsonl for readiness
+2026-08-14 13:35:54,766 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-14.jsonl for readiness
+2026-08-14 13:57:34,320 - main - INFO - Chat Stream log initiated
+2026-08-14 13:57:35,757 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-14 13:57:47,115 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-14.jsonl for chat
+2026-08-14 13:57:50,977 - main - INFO - Chat Stream log initiated
+2026-08-14 13:57:51,464 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-14 13:58:02,862 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-14.jsonl for chat
+2026-08-14 15:11:09,960 - main - INFO - LLM Stream log initiated: readiness using model: rhythmx-readiness:latest
+2026-08-14 15:11:10,565 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-14 15:11:26,441 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-14.jsonl for readiness
+2026-08-14 15:54:12,681 - main - INFO - Chat Stream log initiated
+2026-08-14 15:54:13,096 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-14 15:54:24,442 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-14.jsonl for chat
+2026-08-14 15:54:31,600 - main - INFO - Chat Stream log initiated
+2026-08-14 15:54:32,079 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-14 15:54:43,467 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-14.jsonl for chat
+2026-08-14 15:54:49,880 - main - INFO - LLM Stream log initiated: risk using model: rhythmx-risk:latest
+2026-08-14 15:54:50,811 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-14 15:55:05,975 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-14.jsonl for risk
+2026-08-18 16:35:52,386 - main - INFO - LLM Stream log initiated: recovery using model: rhythmx-recovery:latest
+2026-08-18 16:35:53,731 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-08-18 16:36:08,776 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-08-18.jsonl for recovery
+2026-09-11 07:00:00,077 - main - INFO - Chat Stream log initiated
+2026-09-11 07:00:01,537 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-09-11 07:00:03,665 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-09-11.jsonl for chat
+2026-09-11 07:05:36,698 - main - INFO - Chat Stream log initiated
+2026-09-11 07:05:37,202 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-09-11 07:05:39,837 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-09-11.jsonl for chat
+2026-09-11 07:05:40,672 - main - INFO - Chat Stream log initiated
+2026-09-11 07:05:41,298 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-09-11 07:05:47,814 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-09-11.jsonl for chat
+2026-09-15 15:49:16,888 - main - INFO - LLM Stream log initiated: readiness using model: rhythmx-readiness:latest
+2026-09-15 15:49:17,932 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-09-15 15:49:38,176 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-09-15.jsonl for readiness
+2026-09-15 15:51:19,563 - main - INFO - LLM Stream log initiated: risk using model: rhythmx-risk:latest
+2026-09-15 15:51:20,556 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-09-15 15:51:29,127 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-09-15.jsonl for risk
+2026-09-15 15:52:34,489 - main - INFO - LLM Stream log initiated: recovery using model: rhythmx-recovery:latest
+2026-09-15 15:52:35,466 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-09-15 15:52:56,490 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-09-15.jsonl for recovery
+2026-09-15 15:54:12,990 - main - WARNING - Engine key 'health-band' not found in MODEL_MAPPING! Falling back to rhythmx-chat:latest
+2026-09-15 15:54:12,990 - main - INFO - LLM Stream log initiated: health-band using model: rhythmx-chat:latest
+2026-09-15 15:54:14,648 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-09-15 15:54:20,386 - main - INFO - Logged query/response pair to ../models/runtime_dataset_2026-09-15.jsonl for health-band
