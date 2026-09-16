@@ -193,7 +193,7 @@ async def get_chat_stream(request: Request, background_tasks: BackgroundTasks):
         messages.append({"role": "user", "content": f"ATHLETE_ANALYTICS_RESULT:\n{analytics_context}"})
     logger.info("Chat request accepted; analytics=%s", bool(analytics_context))
 
-    logger.info("Chat payload: %s ", message)
+    logger.info("Chat payload: %s ", analytics_context)
     return StreamingResponse(
         stream_content(
             messages, model_name=MODEL_MAPPING["chat"], engine_type="chat", background_tasks=background_tasks
