@@ -176,8 +176,6 @@ async def _chat_payload(request: Request) -> tuple[str, str]:
             athlete_id, intent, *date_range
         )
         return message, json.dumps(analytics, separators=(",", ":"))
-
-    logger.info("Chat payload: ", message)
     return message, ""
 
 
@@ -194,6 +192,8 @@ async def get_chat_stream(request: Request, background_tasks: BackgroundTasks):
     if analytics_context:
         messages.append({"role": "user", "content": f"ATHLETE_ANALYTICS_RESULT:\n{analytics_context}"})
     logger.info("Chat request accepted; analytics=%s", bool(analytics_context))
+
+    logger.info("Chat payload: %s ", message)
     return StreamingResponse(
         stream_content(
             messages, model_name=MODEL_MAPPING["chat"], engine_type="chat", background_tasks=background_tasks
