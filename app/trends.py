@@ -1,11 +1,15 @@
 from __future__ import annotations
 
+import logging
 from datetime import date, timedelta
 from statistics import mean
 from typing import Any
 import asyncpg
 
 from app.intent import ChatIntent, IntentType
+
+
+logger = logging.getLogger(__name__)
 
 
 METRICS = {
@@ -34,6 +38,17 @@ class TrendService:
     async def build_payload(
         self, athlete_id: int, intent: ChatIntent, start_date: date, end_date: date
     ) -> dict[str, Any]:
+        logger.info(
+            "Trend request validation started",
+            extra={
+                "athlete_id": athlete_id,
+                "intent": intent.intent.value,
+                "metric": intent.metric,
+                "comparison_metric": intent.comparison_metric,
+                "start_date": start_date.isoformat(),
+                "end_date": end_date.isoformat(),
+            },
+        )
         if intent.intent == IntentType.METRIC_COMPARISON:
             return await self._metric_comparison(athlete_id, intent, start_date, end_date)
         payload = await self._single_metric(athlete_id, intent.metric, start_date, end_date)
@@ -52,6 +67,7 @@ class TrendService:
         self, athlete_id: int, metric: str | None, start_date: date, end_date: date
     ) -> dict[str, Any]:
         if metric not in METRICS:
+            logger.warning("Trend metric validation failed", extra={"metric": metric})
             raise ValueError("Unsupported score metric")
         source = METRICS[metric]
         # Source identifiers are selected from METRICS, never supplied as free-form SQL.
@@ -80,6 +96,16 @@ class TrendService:
             "absolute_change": scores[-1] - scores[0] if len(scores) >= 2 else None,
             "trend": _trend(scores, metric),
         }
+        logger.info(
+            "Trend data validation completed",
+            extra={
+                "athlete_id": athlete_id,
+                "metric": metric,
+                "requested_days": requested_days,
+                "available_days": len(values),
+                "confidence": "high" if len(values) == requested_days else "limited",
+            },
+        )
         return {
             "metric": metric,
             "label": source["label"],

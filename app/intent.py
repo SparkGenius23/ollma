@@ -1,9 +1,13 @@
 from __future__ import annotations
 
+import logging
 import re
 from dataclasses import dataclass
 from datetime import date, timedelta
 from enum import Enum
+
+
+logger = logging.getLogger(__name__)
 
 
 class IntentType(str, Enum):
@@ -54,27 +58,64 @@ def parse_intent(message: str) -> ChatIntent:
     previous_words = ("previous period", "prior period", "last week", "compared to last", "since last week")
 
     if len(unique_metrics) >= 2:
-        return ChatIntent(IntentType.METRIC_COMPARISON, unique_metrics[0], unique_metrics[1], days or 7)
+        result = ChatIntent(IntentType.METRIC_COMPARISON, unique_metrics[0], unique_metrics[1], days or 7)
+        logger.info(
+            "Intent validation succeeded: metric comparison",
+            extra={
+                "intent": result.intent.value,
+                "metric": result.metric,
+                "comparison_metric": result.comparison_metric,
+                "days": result.days,
+            },
+        )
+        return result
     if metric and any(word in normalized for word in comparison_words):
-        return ChatIntent(
+        result = ChatIntent(
             IntentType.PERIOD_COMPARISON,
             metric,
             days=days or 7,
             compare_previous_period=any(word in normalized for word in previous_words),
         )
-    if metric and any(word in normalized for word in trend_words):
-        return ChatIntent(
+    elif metric and any(word in normalized for word in trend_words):
+        result = ChatIntent(
             IntentType.TREND,
             metric,
             days=days or 7,
             compare_previous_period=any(word in normalized for word in previous_words),
         )
-    if metric:
-        return ChatIntent(IntentType.CURRENT, metric)
-    return ChatIntent(IntentType.GENERAL)
+    elif metric:
+        result = ChatIntent(IntentType.CURRENT, metric)
+    else:
+        result = ChatIntent(IntentType.GENERAL)
+
+    logger.info(
+        "Intent validation completed",
+        extra={
+            "intent": result.intent.value,
+            "metric": result.metric,
+            "comparison_metric": result.comparison_metric,
+            "days": result.days,
+            "compare_previous_period": result.compare_previous_period,
+        },
+    )
+    return result
 
 
 def date_range_for(intent: ChatIntent, athlete_today: date) -> tuple[date, date] | None:
     if intent.days is None:
+        logger.debug(
+            "Date-range validation skipped: intent has no period",
+            extra={"intent": intent.intent.value},
+        )
         return None
-    return athlete_today - timedelta(days=intent.days) + timedelta(days=1), athlete_today
+    start_date = athlete_today - timedelta(days=intent.days) + timedelta(days=1)
+    logger.debug(
+        "Date-range validation completed",
+        extra={
+            "intent": intent.intent.value,
+            "days": intent.days,
+            "start_date": start_date.isoformat(),
+            "end_date": athlete_today.isoformat(),
+        },
+    )
+    return start_date, athlete_today
