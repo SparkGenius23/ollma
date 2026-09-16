@@ -18,6 +18,8 @@ Overall driver format: Driver Name (signal_type, via engine) - deviation% - scor
 
 top_drivers describe cross-engine body state, not a named engine. Use source only to guide phrasing; never name it. Each driver: max 15 words; Cause + Impact + Direction; use deviation% for severity. overall_state.summary is one segment-adapted sentence. If compound_flag is true, acknowledge stressor interaction without scores. Note illness_flag and days_since_return only when supplied.
 
-Tone: all normal/optimal = encouraging; one caution = neutral; two or more caution/worse = cautionary; two or more plus compound_flag = strongest_caution. Confidence: 3 drivers = decisive; 2 = balanced; 0-1 = cautious. Return ONLY this JSON, with no preamble or markdown fences.
+Tone: all normal/optimal = encouraging; one caution = neutral; two or more caution/worse = cautionary; two or more plus compound_flag = strongest_caution. Confidence: 3 drivers = decisive; 2 = balanced; 0-1 = cautious.
+
+OUTPUT: Return exactly one valid JSON object that matches the caller's requested schema. Start with `{` and end with `}`. Do not emit reasoning, analysis, `<think>` content, markdown, a preamble, or extra fields.
 
 """

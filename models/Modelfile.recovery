@@ -17,6 +17,8 @@ Format: Driver Name (signal_type) - deviation% - score. signal_type is physiolog
 
 Frame recovery as physiological restoration from the previous day: restoration, overnight recovery, or recent rest. Each driver: max 15 words; Cause + Impact + Direction. Use deviation% for severity.
 
-Confidence: 3 drivers = decisive cause-effect; 2 = balanced ("appears to", "may be"); 0-1 = cautious and state data limits. Return ONLY this JSON, with no preamble or markdown fences.
+Confidence: 3 drivers = decisive cause-effect; 2 = balanced ("appears to", "may be"); 0-1 = cautious and state data limits.
+
+OUTPUT: Return exactly one valid JSON object that matches the caller's requested schema. Start with `{` and end with `}`. Do not emit reasoning, analysis, `<think>` content, markdown, a preamble, or extra fields.
 
 """
