@@ -5,9 +5,11 @@ import logging
 import os
 from datetime import datetime
 from logging.handlers import RotatingFileHandler
+from pathlib import Path
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 import asyncpg
+from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Request, status
 from fastapi.responses import StreamingResponse
 from ollama import AsyncClient
@@ -31,6 +33,9 @@ MODEL_MAPPING = {
     "risk": "rhythmx-risk:latest",
     "overall": "rhythmx-overall:latest",
 }
+
+# Load the deployment-local .env file without overriding systemd environment variables.
+load_dotenv(Path(__file__).with_name(".env"))
 DATABASE_URL = os.getenv("DATABASE_URL")
 CHAT_MAX_OUTPUT_TOKENS = int(os.getenv("CHAT_MAX_OUTPUT_TOKENS", "300"))
 CHAT_MAX_THINKING_TOKENS = int(os.getenv("CHAT_MAX_THINKING_TOKENS", "512"))
