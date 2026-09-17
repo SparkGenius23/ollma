@@ -1,6 +1,6 @@
 import types
 import unittest
-from unittest.mock import patch
+from unittest.mock import AsyncMock, patch
 
 from tests._compat import ensure_asyncpg, ensure_dotenv, ensure_fastapi, ensure_jwt, ensure_ollama
 
@@ -56,6 +56,17 @@ class MainRequestTests(unittest.IsolatedAsyncioTestCase):
 
         self.assertEqual(message, "Hello")
         self.assertEqual(analytics, "")
+
+    async def test_startup_keeps_gateway_available_when_database_is_down(self) -> None:
+        with patch.object(main, "DATABASE_URL", "postgresql://unavailable"), patch.object(
+            main.asyncpg,
+            "create_pool",
+            new=AsyncMock(side_effect=OSError("connection refused")),
+            create=True,
+        ):
+            await main.startup()
+
+        self.assertIsNone(main.app.state.db_pool)
 
     async def test_trend_chat_uses_authenticated_identity(self) -> None:
         pool = object()

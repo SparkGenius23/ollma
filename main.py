@@ -34,8 +34,9 @@ MODEL_MAPPING = {
     "overall": "rhythmx-overall:latest",
 }
 
-# Load the deployment-local .env file without overriding systemd environment variables.
-load_dotenv(Path(__file__).with_name(".env"))
+# Use the deployment-local database configuration, including when a shell or
+# service manager supplied a stale DATABASE_URL.
+load_dotenv(Path(__file__).with_name(".env"), override=True)
 DATABASE_URL = os.getenv("DATABASE_URL")
 CHAT_MAX_OUTPUT_TOKENS = int(os.getenv("CHAT_MAX_OUTPUT_TOKENS", "300"))
 CHAT_MAX_THINKING_TOKENS = int(os.getenv("CHAT_MAX_THINKING_TOKENS", "512"))
@@ -54,8 +55,13 @@ End with: Decision-support, not medical advice.
 async def startup() -> None:
     app.state.db_pool = None
     if DATABASE_URL:
-        app.state.db_pool = await asyncpg.create_pool(DATABASE_URL, min_size=1, max_size=10)
-        logger.info("TimescaleDB pool initialized")
+        try:
+            app.state.db_pool = await asyncpg.create_pool(DATABASE_URL, min_size=1, max_size=10)
+            logger.info("TimescaleDB pool initialized")
+        except (asyncpg.PostgresError, OSError, TimeoutError) as exc:
+            # The database is optional: keep the gateway serving non-history
+            # requests when PostgreSQL is temporarily unavailable at boot.
+            logger.error("TimescaleDB pool initialization failed: %s", type(exc).__name__)
     else:
         logger.warning("DATABASE_URL is not configured; score-history chat is disabled")
 
@@ -78,7 +84,7 @@ async def database_health():
         )
     try:
         await pool.fetchval("SELECT 1")
-    except asyncpg.PostgresError as exc:
+    except (asyncpg.PostgresError, OSError, TimeoutError) as exc:
         logger.error("Database readiness check failed: %s", type(exc).__name__)
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,

@@ -4,6 +4,7 @@
 .env
 .env.*
 !.env.example
+app.log
 
 # Runtime logs (including RotatingFileHandler backups such as app.log.1).
 app.log
