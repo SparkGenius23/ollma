@@ -51,10 +51,16 @@ class MainRequestTests(unittest.IsolatedAsyncioTestCase):
         FakeTrendService.calls.clear()
         main.app.state.db_pool = None
 
-    async def test_general_chat_has_no_analytics_payload(self) -> None:
-        message, analytics = await main._chat_payload(_request({"athlete_id": 42, "message": "Hello"}))
+    async def test_general_chat_does_not_require_athlete_id(self) -> None:
+        message, analytics = await main._chat_payload(_request({"message": "Warm up badminton ideas"}))
 
-        self.assertEqual(message, "Hello")
+        self.assertEqual(message, "Warm up badminton ideas")
+        self.assertEqual(analytics, "")
+
+    async def test_history_language_without_an_athlete_id_bypasses_database(self) -> None:
+        message, analytics = await main._chat_payload(_request({"message": "Show my sleep trend over the last 7 days"}))
+
+        self.assertEqual(message, "Show my sleep trend over the last 7 days")
         self.assertEqual(analytics, "")
 
     async def test_startup_keeps_gateway_available_when_database_is_down(self) -> None:

@@ -150,12 +150,14 @@ async def stream_content(
         background_tasks.add_task(append_to_runtime_dataset, engine_type, user_input, full_response)
 
 
-def _athlete_id_from_body(value: object) -> int:
-    """Parse an explicit Django auth.User primary key supplied by the request body."""
+def _athlete_id_from_body(value: object) -> int | None:
+    """Parse an optional Django auth.User primary key supplied by the request body."""
+    if value is None:
+        return None
     try:
         user_id = int(value)  # Accept JSON number or numeric string.
     except (TypeError, ValueError) as exc:
-        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="athlete_id is required") from exc
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="Invalid athlete_id") from exc
     if user_id <= 0:
         raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="Invalid athlete_id")
     return user_id
@@ -180,7 +182,8 @@ async def _chat_payload(request: Request) -> tuple[str, str]:
     intent = parse_intent(message)
     date_range = date_range_for(intent, _athlete_today(body.get("timezone") or "UTC"))
 
-    if intent.intent in {IntentType.TREND, IntentType.PERIOD_COMPARISON, IntentType.METRIC_COMPARISON}:
+    history_requested = intent.intent in {IntentType.TREND, IntentType.PERIOD_COMPARISON, IntentType.METRIC_COMPARISON}
+    if history_requested and athlete_id is not None:
         pool = getattr(app.state, "db_pool", None)
         if pool is None:
             await initialize_database_pool()
@@ -191,9 +194,7 @@ async def _chat_payload(request: Request) -> tuple[str, str]:
                 detail="Score-history service is unavailable" if DATABASE_URL else "Score-history service is not configured",
             )
         assert date_range is not None
-        analytics = await TrendService(pool).build_payload(
-            athlete_id, intent, *date_range
-        )
+        analytics = await TrendService(pool).build_payload(athlete_id, intent, *date_range)
         return message, json.dumps(analytics, separators=(",", ":"))
     return message, ""
 
