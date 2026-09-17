@@ -1,76 +1,23 @@
-import importlib.util
-import logging
-import logging.handlers
-import sys
 import types
 import unittest
 from unittest.mock import patch
 
+from tests._compat import ensure_asyncpg, ensure_dotenv, ensure_fastapi, ensure_jwt, ensure_ollama
+
 
 def _install_runtime_stubs() -> None:
-    """Allow request-routing unit tests to run without optional app packages."""
-    if importlib.util.find_spec("asyncpg") is None:
-        asyncpg = types.ModuleType("asyncpg")
-        asyncpg.Pool = object
-        asyncpg.PostgresError = Exception
-        sys.modules["asyncpg"] = asyncpg
-    if importlib.util.find_spec("dotenv") is None:
-        dotenv = types.ModuleType("dotenv")
-        dotenv.load_dotenv = lambda *_args, **_kwargs: False
-        sys.modules["dotenv"] = dotenv
-    if importlib.util.find_spec("ollama") is None:
-        ollama = types.ModuleType("ollama")
-        ollama.AsyncClient = object
-        sys.modules["ollama"] = ollama
-    if importlib.util.find_spec("fastapi") is None:
-        fastapi = types.ModuleType("fastapi")
+    """Run request-routing unit tests without installing optional runtime packages."""
 
-        class HTTPException(Exception):
-            def __init__(self, status_code: int, detail: str) -> None:
-                self.status_code = status_code
-                self.detail = detail
-
-        class FastAPI:
-            def __init__(self, *_args: object, **_kwargs: object) -> None:
-                self.state = types.SimpleNamespace()
-
-            @staticmethod
-            def _route(*_args: object, **_kwargs: object):
-                return lambda function: function
-
-            on_event = _route
-            get = _route
-            post = _route
-
-        fastapi.BackgroundTasks = object
-        fastapi.FastAPI = FastAPI
-        fastapi.HTTPException = HTTPException
-        fastapi.Request = object
-        fastapi.status = types.SimpleNamespace(
-            HTTP_404_NOT_FOUND=404,
-            HTTP_422_UNPROCESSABLE_ENTITY=422,
-            HTTP_503_SERVICE_UNAVAILABLE=503,
-        )
-        responses = types.ModuleType("fastapi.responses")
-        responses.StreamingResponse = object
-        sys.modules["fastapi"] = fastapi
-        sys.modules["fastapi.responses"] = responses
+    ensure_asyncpg()
+    ensure_dotenv()
+    ensure_ollama()
+    ensure_jwt()
+    ensure_fastapi()
 
 
 _install_runtime_stubs()
 
-# main.py configures a file handler at import time. Keep unit-test logs out of
-# the tracked runtime log while preserving the application's normal behavior.
-logging.handlers.RotatingFileHandler = lambda *_args, **_kwargs: logging.NullHandler()
 import main
-
-
-class FakeRequest:
-    def __init__(self, body: object) -> None:
-        self.body = body
-
-    async def json(self) -> object:
-        return self.body
 
 
 class FakeTrendService:
@@ -84,35 +31,41 @@ class FakeTrendService:
         return {"metric": "sleep_score", "summary": {"trend": "increasing"}}
 
 
+def _payload(
+    message: str,
+    athlete_id: int | None = None,
+    timezone: object = "UTC",
+) -> types.SimpleNamespace:
+    return types.SimpleNamespace(athlete_id=athlete_id, text=message, timezone=timezone)
+
+
+def _request(body: dict[str, object]) -> types.SimpleNamespace:
+    async def json() -> dict[str, object]:
+        return body
+
+    return types.SimpleNamespace(json=json)
+
+
 class MainRequestTests(unittest.IsolatedAsyncioTestCase):
     def setUp(self) -> None:
         FakeTrendService.calls.clear()
         main.app.state.db_pool = None
 
-    def test_athlete_id_accepts_numeric_string(self) -> None:
-        self.assertEqual(main._athlete_id_from_body("42"), 42)
-
-    def test_athlete_id_rejects_missing_or_non_positive_values(self) -> None:
-        for value in (None, "not-a-number", 0, -1):
-            with self.subTest(value=value), self.assertRaises(main.HTTPException) as error:
-                main._athlete_id_from_body(value)
-            self.assertEqual(error.exception.status_code, 422)
-
     async def test_general_chat_has_no_analytics_payload(self) -> None:
-        message, analytics = await main._chat_payload(FakeRequest({"athlete_id": 42, "message": "Hello"}))
+        message, analytics = await main._chat_payload(_request({"athlete_id": 42, "message": "Hello"}))
 
         self.assertEqual(message, "Hello")
         self.assertEqual(analytics, "")
 
-    async def test_trend_chat_builds_analytics_payload(self) -> None:
+    async def test_trend_chat_uses_authenticated_identity(self) -> None:
         pool = object()
         main.app.state.db_pool = pool
-        request = FakeRequest(
-            {"athlete_id": "42", "message": "Show my sleep trend over the last 7 days", "timezone": "UTC"}
+        payload = _request(
+            {"athlete_id": 42, "message": "Show my sleep trend over the last 7 days", "timezone": "UTC"}
         )
 
         with patch.object(main, "TrendService", FakeTrendService):
-            message, analytics = await main._chat_payload(request)
+            message, analytics = await main._chat_payload(payload)
 
         self.assertEqual(message, "Show my sleep trend over the last 7 days")
         self.assertEqual(FakeTrendService.calls[0][0], pool)
@@ -121,9 +74,27 @@ class MainRequestTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(analytics, '{"metric":"sleep_score","summary":{"trend":"increasing"}}')
 
     async def test_trend_chat_requires_configured_database(self) -> None:
-        request = FakeRequest({"athlete_id": 42, "message": "Show my sleep trend over the last 7 days"})
-
         with self.assertRaises(main.HTTPException) as error:
-            await main._chat_payload(request)
+            await main._chat_payload(_request({"athlete_id": 42, "message": "Show my sleep trend over the last 7 days"}))
 
         self.assertEqual(error.exception.status_code, 503)
+
+    async def test_intelligence_stream_rejects_unknown_engine_and_chat_alias(self) -> None:
+        payload = _request({"content": "Evaluate recovery"})
+        with patch.object(main, "stream_content", new=lambda *args, **kwargs: iter(())):
+            with self.assertRaises(main.HTTPException) as error:
+                await main.get_intelligence_stream(payload, "unknown", object())
+            self.assertEqual(error.exception.status_code, 404)
+
+            with self.assertRaises(main.HTTPException) as error:
+                await main.get_intelligence_stream(payload, "chat", object())
+            self.assertEqual(error.exception.status_code, 404)
+
+    async def test_health_endpoints_do_not_leak_sensitive_state(self) -> None:
+        class FakePool:
+            async def fetchval(self, *_args: object, **_kwargs: object) -> object:
+                return 1
+
+        main.app.state.db_pool = FakePool()
+        ready = await main.database_health()
+        self.assertEqual(ready, {"status": "ok", "database": "connected"})

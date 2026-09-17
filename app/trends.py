@@ -89,7 +89,6 @@ class TrendService:
         logger.info(
             "Trend request validation started",
             extra={
-                "athlete_id": athlete_id,
                 "intent": intent.intent.value,
                 "metric": intent.metric,
                 "comparison_metric": intent.comparison_metric,
@@ -154,7 +153,6 @@ class TrendService:
         logger.info(
             "Trend comparison data completed",
             extra={
-                "athlete_id": athlete_id,
                 "requested_days": requested_days,
                 "available_days": len(rows),
                 "metrics": list(COMPARISON_METRICS),
@@ -190,7 +188,6 @@ class TrendService:
         logger.info(
             "Trend data validation completed",
             extra={
-                "athlete_id": athlete_id,
                 "metric": metric,
                 "requested_days": requested_days,
                 "available_days": len(values),
@@ -208,7 +205,6 @@ class TrendService:
                 "available_days": len(values),
                 "confidence": "high" if len(values) == requested_days else "limited",
             },
-            "source_table": source["table"],
         }
 
     async def _metric_comparison(

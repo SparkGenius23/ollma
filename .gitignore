@@ -1,4 +1,32 @@
+.DS_Store
+
+# Deployment-local secrets. Commit the safe .env.example template instead.
+.env
+.env.*
+!.env.example
+
+# Runtime logs (including RotatingFileHandler backups such as app.log.1).
 app.log
+*.log
+*.log.*
+
+# Sensitive runtime conversations collected for retraining. These require a
+# governed de-identification and approval process before becoming a dataset.
+/models/runtime_dataset_*.jsonl
+/dataset.jsonl
+
+# Local fine-tuning outputs and model weights. Keep evaluated releases in the
+# approved model registry/artifact store rather than Git.
+/outputs/
+/rhythmx_finetuned_gguf/
+/checkpoints/
+/runs/
+/wandb/
+*.gguf
+*.safetensors
+*.pt
+*.pth
+
 **/__pycache__
 models/__pycache__
 docs/__pycache__

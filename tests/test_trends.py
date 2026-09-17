@@ -88,3 +88,22 @@ class TrendServiceTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual([metric["metric"] for metric in payload["metrics"]], ["recovery_score", "sleep_score"])
         self.assertIn("nutrition_ratio", payload["comparison_metrics"])
         self.assertEqual(len(pool.queries), 3)
+
+    async def test_previous_period_comparison_is_included_for_trend_intents(self) -> None:
+        pool = FakePool()
+        payload = await TrendService(pool).build_payload(
+            42,
+            ChatIntent(IntentType.TREND, "recovery_score", days=2, compare_previous_period=True),
+            date(2026, 9, 1),
+            date(2026, 9, 2),
+        )
+
+        self.assertIn("comparison", payload)
+        self.assertEqual(payload["comparison"]["previous_period_average"], 72.5)
+        self.assertEqual(payload["comparison"]["average_change"], 0.0)
+        self.assertEqual(len(pool.queries), 3)
+
+    async def test_unsupported_metric_raises_value_error(self) -> None:
+        pool = FakePool()
+        with self.assertRaises(ValueError):
+            await TrendService(pool)._single_metric(42, "not_a_metric", date(2026, 9, 1), date(2026, 9, 2))
