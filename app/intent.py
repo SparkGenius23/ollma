@@ -24,6 +24,19 @@ METRICS = {
     "injury risk": "injury_risk_score",
     "injury-risk": "injury_risk_score",
     "risk": "injury_risk_score",
+    "hrv": "hrv_score",
+    "heart rate variability": "hrv_score",
+    "resting heart rate": "rhr_score",
+    "rhr": "rhr_score",
+    "sleep": "sleep_score",
+    "nutrition": "nutrition_ratio",
+    "hydration": "hydration_score",
+    "ari": "ari_score",
+    "spo2": "spo2_score",
+    "oxygen saturation": "spo2_score",
+    "stress": "stress_score",
+    "soreness": "soreness_score",
+    "fatigue": "fatigue_score",
 }
 
 

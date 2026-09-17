@@ -45,6 +45,41 @@ curl -N -X POST "$RHYTHMX_API/chat/" \
   }'
 ```
 
+### Sleep trend - last 14 days
+
+```bash
+curl -N -X POST "$RHYTHMX_API/chat/" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "athlete_id": 42,
+    "message": "Show my sleep trend over the last 14 days",
+    "timezone": "America/Halifax"
+  }'
+```
+
+### Recovery versus sleep - last 7 days
+
+```bash
+curl -N -X POST "$RHYTHMX_API/chat/" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "athlete_id": 42,
+    "message": "Compare my recovery versus sleep over the last 7 days",
+    "timezone": "America/Halifax"
+  }'
+```
+
+### Nutrition versus hydration - last 30 days
+
+```bash
+curl -N -X POST "$RHYTHMX_API/chat/" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "athlete_id": 42,
+    "message": "Compare my nutrition and hydration over the last 30 days"
+  }'
+```
+
 ### Injury-risk trend - last 14 days
 
 ```bash
@@ -56,7 +91,9 @@ curl -N -X POST "$RHYTHMX_API/chat/" \
   }'
 ```
 
-`-N` keeps curl from buffering the streamed text response. The chat service
+`-N` keeps curl from buffering the streamed text response. Trend responses
+also include aligned sleep, nutrition, hydration, HRV, RHR, ARI, SpO2, stress,
+soreness, and fatigue data for context. The chat service
 returns `503` when the database is not configured or unavailable, and `422`
 when the request body, athlete ID, timezone, or message is invalid.
 
