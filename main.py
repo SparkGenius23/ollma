@@ -53,17 +53,24 @@ End with: Decision-support, not medical advice.
 
 @app.on_event("startup")
 async def startup() -> None:
+    await initialize_database_pool()
+
+
+async def initialize_database_pool() -> bool:
+    """Create the optional database pool, leaving the API available on failure."""
     app.state.db_pool = None
-    if DATABASE_URL:
-        try:
-            app.state.db_pool = await asyncpg.create_pool(DATABASE_URL, min_size=1, max_size=10)
-            logger.info("TimescaleDB pool initialized")
-        except (asyncpg.PostgresError, OSError, TimeoutError) as exc:
-            # The database is optional: keep the gateway serving non-history
-            # requests when PostgreSQL is temporarily unavailable at boot.
-            logger.error("TimescaleDB pool initialization failed: %s", type(exc).__name__)
-    else:
+    if not DATABASE_URL:
         logger.warning("DATABASE_URL is not configured; score-history chat is disabled")
+        return False
+    try:
+        app.state.db_pool = await asyncpg.create_pool(DATABASE_URL, min_size=1, max_size=10)
+        logger.info("TimescaleDB pool initialized")
+        return True
+    except (asyncpg.PostgresError, OSError, TimeoutError) as exc:
+        # The database is optional: keep the gateway serving non-history
+        # requests when PostgreSQL is temporarily unavailable at boot.
+        logger.error("TimescaleDB pool initialization failed: %s", type(exc).__name__)
+        return False
 
 
 @app.on_event("shutdown")
@@ -78,9 +85,12 @@ async def database_health():
     """Read-only database readiness probe; no credentials or health data are returned."""
     pool = getattr(app.state, "db_pool", None)
     if pool is None:
+        await initialize_database_pool()
+        pool = app.state.db_pool
+    if pool is None:
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail="Database is not configured",
+            detail="Database is unavailable" if DATABASE_URL else "Database is not configured",
         )
     try:
         await pool.fetchval("SELECT 1")
@@ -173,9 +183,12 @@ async def _chat_payload(request: Request) -> tuple[str, str]:
     if intent.intent in {IntentType.TREND, IntentType.PERIOD_COMPARISON, IntentType.METRIC_COMPARISON}:
         pool = getattr(app.state, "db_pool", None)
         if pool is None:
+            await initialize_database_pool()
+            pool = app.state.db_pool
+        if pool is None:
             raise HTTPException(
                 status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-                detail="Score-history service is not configured",
+                detail="Score-history service is unavailable" if DATABASE_URL else "Score-history service is not configured",
             )
         assert date_range is not None
         analytics = await TrendService(pool).build_payload(

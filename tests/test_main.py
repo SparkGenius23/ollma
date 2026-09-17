@@ -68,6 +68,21 @@ class MainRequestTests(unittest.IsolatedAsyncioTestCase):
 
         self.assertIsNone(main.app.state.db_pool)
 
+    async def test_database_health_retries_an_unavailable_pool(self) -> None:
+        class FakePool:
+            async def fetchval(self, *_args: object, **_kwargs: object) -> object:
+                return 1
+
+        async def restore_pool() -> bool:
+            main.app.state.db_pool = FakePool()
+            return True
+
+        main.app.state.db_pool = None
+        with patch.object(main, "initialize_database_pool", new=AsyncMock(side_effect=restore_pool)) as retry:
+            self.assertEqual(await main.database_health(), {"status": "ok", "database": "connected"})
+
+        retry.assert_awaited_once()
+
     async def test_trend_chat_uses_authenticated_identity(self) -> None:
         pool = object()
         main.app.state.db_pool = pool
